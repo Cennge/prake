@@ -8,10 +8,11 @@ import logoPrake from '@shared/assets/logo/logo-prake.png';
 interface SidebarProps {
     isOpen: boolean;
     onClose: () => void;
+    onCatalogClick?: () => void;
 }
 
 
-export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
+export const Sidebar = ({ isOpen, onClose, onCatalogClick }: SidebarProps) => {
     const { stop, start } = useSmoothScroll();
 
     useEffect(() => {
@@ -45,10 +46,13 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                 </div>
 
                 <nav className="sidebar__nav">
-                    <Link to="/catalog" className="sidebar__item sidebar__item--catalog" onClick={onClose}>
+                    <div className="sidebar__item sidebar__item--catalog" onClick={() => {
+                        onCatalogClick?.();
+                        onClose();
+                    }} style={{ cursor: 'pointer' }}>
                         <Grid2X2 size={24} className="sidebar__icon" />
                         <span>Каталог</span>
-                    </Link>
+                    </div>
                     <Link to="/" className="sidebar__item" onClick={onClose}>
                         <Home size={24} className="sidebar__icon" />
                         <span>Головна</span>

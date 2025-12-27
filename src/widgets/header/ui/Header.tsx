@@ -5,12 +5,24 @@ import './Header.css';
 import { useState } from 'react';
 import { Sidebar } from '../../sidebar/ui/Sidebar';
 
-export const Header = () => {
+interface HeaderProps {
+    onCatalogClick?: () => void;
+    isCatalogActive?: boolean;
+}
+
+export const Header = ({ onCatalogClick, isCatalogActive }: HeaderProps) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     return (
         <>
-            <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+            <Sidebar
+                isOpen={isSidebarOpen}
+                onClose={() => setIsSidebarOpen(false)}
+                onCatalogClick={() => {
+                    setIsSidebarOpen(false);
+                    onCatalogClick?.();
+                }}
+            />
             <header className="header">
                 <div className="header__container">
                     <button className="header__menu-btn" onClick={() => setIsSidebarOpen(true)}>
@@ -21,7 +33,10 @@ export const Header = () => {
                         <img src={logoPrake} alt="prake" />
                     </Link>
 
-                    <button className="header__catalog-btn">
+                    <button
+                        className={`header__catalog-btn ${isCatalogActive ? 'active' : ''}`}
+                        onClick={onCatalogClick}
+                    >
                         <Grid2X2 size={24} color="currentColor" />
                         <span>Каталог</span>
                     </button>

@@ -117,7 +117,8 @@
     z-index: 1;
 }
 
-.header__catalog-btn:hover {
+.header__catalog-btn:hover,
+.header__catalog-btn.active {
     background: rgba(249, 115, 22, 0.1);
     border-color: rgba(249, 115, 22, 0.3);
     color: #ea580c;

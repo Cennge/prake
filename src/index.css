@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,16 +12,6 @@ body {
     min-height: 100vh;
 }
 
-@font-face {
-    font-family: 'Metal';
-    src: url('./shared/assets/fonts/Metal Reg-2.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Inter';
-    src: url('./shared/assets/fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
+:root {
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
