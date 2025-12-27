@@ -1,6 +1,7 @@
 import { X, Home, Info, CreditCard, Truck, ShieldCheck, FileText, Heart, Scale, ShoppingCart, LogIn, UserPlus, Grid2X2, ChevronDown } from 'lucide-react';
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
+import { useSmoothScroll } from '@app/providers/SmoothScroll';
 import { useEffect } from 'react';
 import logoPrake from '@shared/assets/logo/logo-prake.png';
 
@@ -9,34 +10,20 @@ interface SidebarProps {
     onClose: () => void;
 }
 
+
 export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
+    const { stop, start } = useSmoothScroll();
+
     useEffect(() => {
         if (isOpen) {
-            const scrollY = window.scrollY;
-            document.body.style.position = 'fixed';
-            document.body.style.top = `-${scrollY}px`;
-            document.body.style.width = '100%';
-            document.body.style.overflowY = 'scroll';
+            stop();
         } else {
-            const scrollY = document.body.style.top;
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            document.body.style.overflowY = '';
-            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            start();
         }
-
         return () => {
-            const scrollY = document.body.style.top;
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            document.body.style.overflowY = '';
-            if (scrollY) {
-                window.scrollTo(0, parseInt(scrollY || '0') * -1);
-            }
+            start();
         };
-    }, [isOpen]);
+    }, [isOpen, stop, start]);
 
     return (
         <>

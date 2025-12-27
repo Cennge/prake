@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, createContext, useContext, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
@@ -7,12 +8,34 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface SmoothScrollContextType {
+    lenis: Lenis | null;
+    stop: () => void;
+    start: () => void;
+}
+
+const SmoothScrollContext = createContext<SmoothScrollContextType>({
+    lenis: null,
+    stop: () => { },
+    start: () => { },
+});
+
+export const useSmoothScroll = () => useContext(SmoothScrollContext);
+
 export const SmoothScroll = ({ children }: { children: ReactNode }) => {
+    const lenisRef = useRef<Lenis | null>(null);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        lenisRef.current?.scrollTo(0, { immediate: true });
+    }, [pathname]);
+
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.8,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
+        lenisRef.current = lenis;
 
         lenis.on('scroll', ScrollTrigger.update);
 
@@ -26,8 +49,22 @@ export const SmoothScroll = ({ children }: { children: ReactNode }) => {
         return () => {
             gsap.ticker.remove(tickerFn);
             lenis.destroy();
+            lenisRef.current = null;
         };
     }, []);
 
-    return <>{children}</>;
+    const stop = () => {
+        lenisRef.current?.stop();
+    };
+
+    const start = () => {
+        lenisRef.current?.start();
+    };
+
+    return (
+        <SmoothScrollContext.Provider value={{ lenis: lenisRef.current, stop, start }}>
+            {children}
+        </SmoothScrollContext.Provider>
+    );
 };
+
