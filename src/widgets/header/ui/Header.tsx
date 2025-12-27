@@ -1,34 +1,56 @@
-import { useState } from 'react';
+import { Menu, Grid2X2, Search, User, Scale, ShoppingCart, ChevronDown, Mic } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import logoPrake from '@shared/assets/logo/logo-prake.png';
 import './Header.css';
-import logo from '@shared/assets/logo/logo4epuha-black.png';
 
 export const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
     return (
         <header className="header">
-            <div className="header-left">
-                <div className="logo">
-                    <img src={logo} alt="logo" />
+            <div className="header__container">
+                <button className="header__menu-btn">
+                    <Menu size={24} color="currentColor" />
+                </button>
+
+                <Link to="/" className="header__logo">
+                    <img src={logoPrake} alt="prake" />
+                </Link>
+
+                <button className="header__catalog-btn">
+                    <Grid2X2 size={24} color="currentColor" />
+                    <span>Каталог</span>
+                </button>
+
+                <div className="header__search">
+                    <div className="header__search-icon">
+                        <Search size={20} color="currentColor" />
+                    </div>
+                    <input type="text" placeholder="Я шукаю..." className="header__search-input" />
+                    <button className="header__mic-btn">
+                        <Mic size={20} color="currentColor" />
+                    </button>
+                    <button className="header__search-btn">
+                        Знайти
+                    </button>
                 </div>
-                <span className="logo-text">TRAVEL WITH 4EPUHA</span>
-            </div>
 
-            <div className={`burger-btn ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
-                <span className="burger-line"></span>
-                <span className="burger-line"></span>
-                <span className="burger-line"></span>
-            </div>
+                <div className="header__actions">
+                    <div className="header__lang">
+                        <span>UA</span>
+                        <ChevronDown size={16} color="currentColor" />
+                    </div>
 
-            <div className={`header-right ${isMenuOpen ? 'open' : ''}`}>
-                <div className="nav-item">EN/RU</div>
-                <div className="nav-item" onClick={toggleMenu}>ABOUT US</div>
-                <div className="nav-item" onClick={toggleMenu}>REGISTER</div>
-                <div className="nav-item" onClick={toggleMenu}>SIGN IN</div>
+                    <button className="header__action-btn">
+                        <User size={24} color="currentColor" />
+                    </button>
+
+                    <button className="header__action-btn">
+                        <Scale size={24} color="currentColor" />
+                    </button>
+
+                    <button className="header__action-btn">
+                        <ShoppingCart size={24} color="currentColor" />
+                    </button>
+                </div>
             </div>
         </header>
     );
