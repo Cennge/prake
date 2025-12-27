@@ -43,11 +43,53 @@
     transform: translateX(0);
 }
 
+/* Header Area */
+.sidebar__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle divider */
+}
+
+.sidebar__logo {
+    height: 32px;
+    /* Match header logo size/proportion */
+    width: auto;
+}
+
+.sidebar__header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Language Switcher */
+.sidebar__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #374151;
+    transition: all 0.2s ease;
+}
+
+.sidebar__lang:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
 /* Close Button */
 .sidebar__close-btn {
-    position: absolute;
-    top: 24px;
-    right: 24px;
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 50%;
@@ -75,7 +117,8 @@
 
 /* Navigation */
 .sidebar__nav {
-    margin-top: 60px;
+    margin-top: 10px;
+    /* Reduced from 60px because of header */
     display: flex;
     flex-direction: column;
     gap: 4px;

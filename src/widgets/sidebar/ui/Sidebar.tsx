@@ -1,7 +1,8 @@
-import { X, Home, Info, CreditCard, Truck, ShieldCheck, FileText, Heart, Scale, ShoppingCart, LogIn, UserPlus, Grid2X2 } from 'lucide-react';
+import { X, Home, Info, CreditCard, Truck, ShieldCheck, FileText, Heart, Scale, ShoppingCart, LogIn, UserPlus, Grid2X2, ChevronDown } from 'lucide-react';
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import logoPrake from '@shared/assets/logo/logo-prake.png';
 
 interface SidebarProps {
     isOpen: boolean;
@@ -15,7 +16,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollY}px`;
             document.body.style.width = '100%';
-            document.body.style.overflowY = 'scroll'; // Maintain scrollbar to prevent shift
+            document.body.style.overflowY = 'scroll';
         } else {
             const scrollY = document.body.style.top;
             document.body.style.position = '';
@@ -41,9 +42,20 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         <>
             <div className={`sidebar-backdrop ${isOpen ? 'open' : ''}`} onClick={onClose} />
             <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-                <button className="sidebar__close-btn" onClick={onClose}>
-                    <X size={24} color="#6b7280" />
-                </button>
+                <div className="sidebar__header">
+                    <img src={logoPrake} alt="prake" className="sidebar__logo" />
+
+                    <div className="sidebar__header-actions">
+                        <button className="sidebar__lang">
+                            <span>UA</span>
+                            <ChevronDown size={16} />
+                        </button>
+
+                        <button className="sidebar__close-btn" onClick={onClose}>
+                            <X size={24} color="#6b7280" />
+                        </button>
+                    </div>
+                </div>
 
                 <nav className="sidebar__nav">
                     <Link to="/catalog" className="sidebar__item sidebar__item--catalog" onClick={onClose}>
