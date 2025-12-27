@@ -305,3 +305,56 @@
     opacity: 1;
     bottom: -2px;
 }
+
+/* Mobile Search Button */
+.header__search-btn-mobile {
+    display: none;
+    /* Hidden on desktop */
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 16px;
+        height: 64px;
+        border-radius: 32px;
+        margin: 16px auto;
+        width: calc(100% - 32px);
+    }
+
+    .header__container {
+        gap: 12px;
+        justify-content: space-between;
+    }
+
+    /* Hide Desktop Elements */
+    .header__catalog-btn,
+    .header__search,
+    .header__lang,
+    .header__action-btn:not(:last-child):not(.header__search-btn-mobile) {
+        display: none;
+    }
+
+    /* Show Mobile Elements */
+    .header__search-btn-mobile {
+        display: flex;
+    }
+
+    /* Adjust Logo */
+    .header__logo {
+        margin-right: auto;
+        /* Push actions to the right */
+        margin-left: 12px;
+        height: 32px;
+    }
+
+    .header__logo img {
+        height: 100%;
+        width: auto;
+    }
+
+    .header__actions {
+        display: flex;
+        gap: 8px;
+    }
+}

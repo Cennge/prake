@@ -39,6 +39,10 @@ export const Header = () => {
                         </button>
                     </div>
 
+                    <button className="header__action-btn header__search-btn-mobile">
+                        <Search size={24} color="currentColor" />
+                    </button>
+
                     <div className="header__actions">
                         <button className="header__lang">
                             <span>UA</span>
