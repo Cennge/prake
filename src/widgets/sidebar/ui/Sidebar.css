@@ -1,0 +1,152 @@
+/* Sidebar Overlay */
+.sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 150;
+}
+
+.sidebar-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Sidebar Container */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.85);
+    /* Slightly more opaque than header */
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 160;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+/* Close Button */
+.sidebar__close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.sidebar__close-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.sidebar__close-btn svg {
+    transition: color 0.3s;
+}
+
+.sidebar__close-btn:hover svg {
+    color: #ef4444 !important;
+}
+
+/* Navigation */
+.sidebar__nav {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* Reduced gap */
+    overflow-y: auto;
+    padding-bottom: 20px;
+    padding-top: 12px;
+    /* Prevent hover clipping at top */
+    flex: 1;
+    /* Take remaining height */
+    min-height: 0;
+    /* Allow scrolling within flex item */
+}
+
+.sidebar__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* Slightly tighter icon gap */
+    padding: 10px 16px;
+    /* Reduced vertical padding */
+    text-decoration: none;
+    color: #374151;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.sidebar__item:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+}
+
+.sidebar__icon {
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.sidebar__item:hover .sidebar__icon {
+    color: #2563eb;
+}
+
+.sidebar__divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.05);
+    margin: 12px 0;
+}
+
+/* Catalog Highlight */
+.sidebar__item--catalog {
+    background: rgba(249, 115, 22, 0.1);
+    color: #ea580c;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    margin-bottom: 8px;
+    /* Slight separation */
+}
+
+.sidebar__item--catalog .sidebar__icon {
+    color: #ea580c;
+}
+
+.sidebar__item--catalog:hover {
+    background: rgba(249, 115, 22, 0.15);
+    border-color: rgba(249, 115, 22, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
+    color: #ea580c;
+}
+
+.sidebar__item--catalog:hover .sidebar__icon {
+    color: #ea580c;
+}

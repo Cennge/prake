@@ -1,47 +1,56 @@
-/* Light Liquid Glass Theme */
+/* Light Liquid Glass Theme - Floating Pill Variant */
 .header {
     background-color: rgba(255, 255, 255, 0.7);
     /* Light translucent base */
     backdrop-filter: blur(12px) saturate(140%);
     -webkit-backdrop-filter: blur(12px) saturate(140%);
-    width: 100%;
+
+    /* Floating Pill Dimensions & Positioning */
+    width: calc(100% - 40px);
+    max-width: 1400px;
+    margin: 20px auto;
+    height: 72px;
+    /* Slightly sleeker */
+    position: sticky;
+    top: 20px;
+
+    /* Rounded Aesthetic */
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.08),
+        inset 0 0 15px rgba(255, 255, 255, 0.5);
+
     color: #1a1a1a;
-    /* Dark text for contrast */
-    padding: 0 16px;
-    height: 80px;
+    padding: 0 24px;
     display: flex;
     align-items: center;
-    position: sticky;
-    top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow:
-        0 4px 30px rgba(0, 0, 0, 0.05),
-        inset 0 0 20px rgba(255, 255, 255, 0.5);
-    /* Prevent layout shifts at the root */
     contain: layout;
 }
 
 .header__container {
-    max-width: 1440px;
+    max-width: 100%;
+    /* Relative to the floating header width */
     margin: 0 auto;
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
 }
 
 .header__menu-btn {
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 12px;
+    border-radius: 50%;
+    /* Circular for the pill theme */
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    width: 44px;
+    height: 44px;
     color: #4b5563;
-    /* Darker gray like other icons */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     flex-shrink: 0;
     will-change: transform, background-color, box-shadow;
@@ -59,8 +68,8 @@
 .header__logo {
     display: flex;
     align-items: center;
-    margin-right: 24px;
-    height: 48px;
+    margin-right: 16px;
+    height: 40px;
     text-decoration: none;
     transition: transform 0.3s ease;
     flex-shrink: 0;
@@ -87,13 +96,13 @@
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(0, 0, 0, 0.05);
     color: #4b5563;
-    /* Softer gray to match other icons */
     padding: 0 20px;
-    border-radius: 14px;
-    height: 48px;
+    border-radius: 30px;
+    /* More rounded */
+    height: 44px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 600;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     position: relative;
@@ -110,10 +119,8 @@
 
 .header__catalog-btn:hover {
     background: rgba(249, 115, 22, 0.1);
-    /* Orange tint */
     border-color: rgba(249, 115, 22, 0.3);
     color: #ea580c;
-    /* Darker orange text */
     transform: scale(1.02) translateZ(0);
     box-shadow: 0 10px 20px rgba(249, 115, 22, 0.15);
 }
@@ -125,13 +132,13 @@
     align-items: center;
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 14px;
+    border-radius: 30px;
+    /* Fully rounded search */
     overflow: hidden;
-    height: 48px;
+    height: 44px;
     position: relative;
     transition: all 0.3s ease;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
-    /* Improve overflow masking for Safari/corners */
     mask-image: -webkit-radial-gradient(white, black);
     -webkit-mask-image: -webkit-radial-gradient(white, black);
     z-index: 1;
@@ -141,7 +148,6 @@
 
 .header__search:hover {
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
-    /* Search glow on hover */
     background: rgba(255, 255, 255, 0.8);
 }
 
@@ -151,7 +157,6 @@
     box-shadow:
         inset 0 2px 4px rgba(59, 130, 246, 0.05),
         0 0 20px rgba(59, 130, 246, 0.25);
-    /* Stronger glow on focus */
 }
 
 .header__search-icon {
@@ -166,7 +171,7 @@
     background: transparent;
     border: none;
     padding: 0 12px;
-    font-size: 16px;
+    font-size: 15px;
     outline: none;
     height: 100%;
     color: #1f2937;
@@ -191,21 +196,20 @@
 
 .header__mic-btn:hover {
     color: #3b82f6;
-    /* Blue hover */
 }
 
 .header__search-btn {
     background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    /* Blue gradient */
     color: white;
     border: none;
-    padding: 0 24px;
+    padding: 0 20px;
     height: 100%;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
     font-weight: 500;
     transition: all 0.3s ease;
-    border-radius: 0 14px 14px 0;
+    border-radius: 0 30px 30px 0;
+    /* Match search rounding */
     flex-shrink: 0;
     will-change: filter, box-shadow;
 }
@@ -219,24 +223,22 @@
 .header__actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     flex-shrink: 0;
 }
 
 .header__lang {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     color: #4b5563;
-    font-size: 14px;
-    padding: 0 14px;
-    /* Removed vertical padding to use height */
-    height: 48px;
-    /* Matching Catalog and Search */
-    border-radius: 12px;
+    font-size: 13px;
+    padding: 0 12px;
+    height: 40px;
+    border-radius: 20px;
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -257,18 +259,15 @@
         0 0 0 2px rgba(59, 130, 246, 0.05);
 }
 
-.header__lang span {
-    line-height: 1;
-}
-
 .header__action-btn {
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 12px;
+    border-radius: 50%;
+    /* Circular for floating feel */
     cursor: pointer;
     color: #4b5563;
-    /* Gray default */
-    padding: 10px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -282,25 +281,21 @@
 .header__action-btn:hover {
     background: rgba(255, 255, 255, 0.8);
     border-color: rgba(249, 115, 22, 0.3);
-    /* Orange border on hover */
     transform: translateY(-4px) scale(1.1) translateZ(0);
     box-shadow:
         0 10px 20px -5px rgba(249, 115, 22, 0.2),
         inset 0 0 10px rgba(255, 255, 255, 0.5);
     color: #ea580c;
-    /* Orange icon */
 }
 
-/* Add a fluid glow behind active elements */
 .header__action-btn::after {
     content: '';
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     background: #ea580c;
-    /* Matching the hover color */
     border-radius: 50%;
-    bottom: -8px;
+    bottom: -6px;
     opacity: 0;
     transition: all 0.3s;
     pointer-events: none;
@@ -308,5 +303,5 @@
 
 .header__action-btn:hover::after {
     opacity: 1;
-    bottom: -4px;
+    bottom: -2px;
 }

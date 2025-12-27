@@ -2,56 +2,63 @@ import { Menu, Grid2X2, Search, User, Scale, ShoppingCart, ChevronDown, Mic } fr
 import { Link } from 'react-router-dom';
 import logoPrake from '@shared/assets/logo/logo-prake.png';
 import './Header.css';
+import { useState } from 'react';
+import { Sidebar } from '../../sidebar/ui/Sidebar';
 
 export const Header = () => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
     return (
-        <header className="header">
-            <div className="header__container">
-                <button className="header__menu-btn">
-                    <Menu size={24} color="currentColor" />
-                </button>
+        <>
+            <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+            <header className="header">
+                <div className="header__container">
+                    <button className="header__menu-btn" onClick={() => setIsSidebarOpen(true)}>
+                        <Menu size={24} color="currentColor" />
+                    </button>
 
-                <Link to="/" className="header__logo">
-                    <img src={logoPrake} alt="prake" />
-                </Link>
+                    <Link to="/" className="header__logo">
+                        <img src={logoPrake} alt="prake" />
+                    </Link>
 
-                <button className="header__catalog-btn">
-                    <Grid2X2 size={24} color="currentColor" />
-                    <span>Каталог</span>
-                </button>
+                    <button className="header__catalog-btn">
+                        <Grid2X2 size={24} color="currentColor" />
+                        <span>Каталог</span>
+                    </button>
 
-                <div className="header__search">
-                    <div className="header__search-icon">
-                        <Search size={20} color="currentColor" />
+                    <div className="header__search">
+                        <div className="header__search-icon">
+                            <Search size={20} color="currentColor" />
+                        </div>
+                        <input type="text" placeholder="Я шукаю..." className="header__search-input" />
+                        <button className="header__mic-btn">
+                            <Mic size={20} color="currentColor" />
+                        </button>
+                        <button className="header__search-btn">
+                            Знайти
+                        </button>
                     </div>
-                    <input type="text" placeholder="Я шукаю..." className="header__search-input" />
-                    <button className="header__mic-btn">
-                        <Mic size={20} color="currentColor" />
-                    </button>
-                    <button className="header__search-btn">
-                        Знайти
-                    </button>
+
+                    <div className="header__actions">
+                        <button className="header__lang">
+                            <span>UA</span>
+                            <ChevronDown size={16} color="currentColor" />
+                        </button>
+
+                        <button className="header__action-btn">
+                            <User size={24} color="currentColor" />
+                        </button>
+
+                        <button className="header__action-btn">
+                            <Scale size={24} color="currentColor" />
+                        </button>
+
+                        <button className="header__action-btn">
+                            <ShoppingCart size={24} color="currentColor" />
+                        </button>
+                    </div>
                 </div>
-
-                <div className="header__actions">
-                    <button className="header__lang">
-                        <span>UA</span>
-                        <ChevronDown size={16} color="currentColor" />
-                    </button>
-
-                    <button className="header__action-btn">
-                        <User size={24} color="currentColor" />
-                    </button>
-
-                    <button className="header__action-btn">
-                        <Scale size={24} color="currentColor" />
-                    </button>
-
-                    <button className="header__action-btn">
-                        <ShoppingCart size={24} color="currentColor" />
-                    </button>
-                </div>
-            </div>
-        </header>
+            </header>
+        </>
     );
 };
