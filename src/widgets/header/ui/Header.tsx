@@ -34,10 +34,10 @@ export const Header = () => {
                 </div>
 
                 <div className="header__actions">
-                    <div className="header__lang">
+                    <button className="header__lang">
                         <span>UA</span>
                         <ChevronDown size={16} color="currentColor" />
-                    </div>
+                    </button>
 
                     <button className="header__action-btn">
                         <User size={24} color="currentColor" />
