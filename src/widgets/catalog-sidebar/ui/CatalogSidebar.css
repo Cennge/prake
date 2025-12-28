@@ -6,7 +6,7 @@
     /* Header top (20px) + Header height (72px) + 10px spacing */
     width: calc(100% - 40px);
     max-width: 1400px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px) saturate(160%);
     -webkit-backdrop-filter: blur(16px) saturate(160%);
     border-radius: 32px;

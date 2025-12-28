@@ -193,4 +193,88 @@
     .footer__text {
         justify-content: center;
     }
+
+    .footer__bottom-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Footer Bottom Styles */
+.footer__bottom {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer__bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.footer__credits {
+    font-size: 13px;
+    color: #9ca3af;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer__github-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #9ca3af;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer__github-link:hover {
+    animation: neon-shimmer 2s infinite alternate;
+}
+
+@keyframes neon-shimmer {
+    0% {
+        color: #a855f7;
+        /* Purple */
+        text-shadow:
+            0 0 4px rgba(168, 85, 247, 0.4),
+            0 0 8px rgba(168, 85, 247, 0.2);
+    }
+
+    50% {
+        color: #3b82f6;
+        /* Blue */
+        text-shadow:
+            0 0 6px rgba(59, 130, 246, 0.6),
+            0 0 12px rgba(59, 130, 246, 0.3),
+            0 0 20px rgba(59, 130, 246, 0.2);
+    }
+
+    100% {
+        color: #d946ef;
+        /* Magenta/Purple */
+        text-shadow:
+            0 0 4px rgba(217, 70, 239, 0.4),
+            0 0 8px rgba(217, 70, 239, 0.2);
+    }
+}
+
+.footer__4epuha {
+    display: flex;
+    align-items: center;
+}
+
+.footer__4epuha-logo {
+    height: 24px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.footer__4epuha-logo:hover {
+    opacity: 1;
 }

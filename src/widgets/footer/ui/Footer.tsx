@@ -1,6 +1,7 @@
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, CreditCard, Lock, User, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, CreditCard, Lock, User, Send, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import logo4epuha from '@shared/assets/logo/logo4epuha-grey.png';
 
 
 export const Footer = () => {
@@ -105,6 +106,21 @@ export const Footer = () => {
                         <a href="#" className="social-btn" aria-label="Telegram">
                             <Send size={20} />
                         </a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="footer__bottom">
+                <div className="footer__bottom-container">
+                    <div className="footer__credits">
+                        <span>Created by Ilya Gliba</span>
+                        <a href="https://github.com/Cennge" target="_blank" rel="noopener noreferrer" className="footer__github-link">
+                            <Github size={14} />
+                            <span>Cennge</span>
+                        </a>
+                    </div>
+                    <div className="footer__4epuha">
+                        <img src={logo4epuha} alt="4epuha Logo" className="footer__4epuha-logo" />
                     </div>
                 </div>
             </div>
