@@ -1,14 +1,10 @@
 import './HomePage.css';
-import homeBanner from '@shared/assets/images/homePage/prake-1.png';
-import homeBannerMobile from '@shared/assets/images/homePage/prake-1-mobile.png';
+import { HomeBannerCarousel } from '@widgets/home-banner-carousel';
 
 export const HomePage = () => {
     return (
-        <div>
-            <picture>
-                <source media="(max-width: 768px)" srcSet={homeBannerMobile} />
-                <img src={homeBanner} alt="Banner" className="home-banner" />
-            </picture>
+        <div className="home-page">
+            <HomeBannerCarousel />
         </div>
     );
 };
