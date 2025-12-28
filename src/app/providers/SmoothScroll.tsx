@@ -1,4 +1,4 @@
-import { useEffect, createContext, useContext, useRef } from 'react';
+import { useEffect, createContext, useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import Lenis from 'lenis';
@@ -23,24 +23,24 @@ const SmoothScrollContext = createContext<SmoothScrollContextType>({
 export const useSmoothScroll = () => useContext(SmoothScrollContext);
 
 export const SmoothScroll = ({ children }: { children: ReactNode }) => {
-    const lenisRef = useRef<Lenis | null>(null);
+    const [lenis, setLenis] = useState<Lenis | null>(null);
     const { pathname } = useLocation();
 
     useEffect(() => {
-        lenisRef.current?.scrollTo(0, { immediate: true });
-    }, [pathname]);
+        lenis?.scrollTo(0, { immediate: true });
+    }, [pathname, lenis]);
 
     useEffect(() => {
-        const lenis = new Lenis({
+        const lenisInstance = new Lenis({
             duration: 1.8,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
-        lenisRef.current = lenis;
+        setLenis(lenisInstance);
 
-        lenis.on('scroll', ScrollTrigger.update);
+        lenisInstance.on('scroll', ScrollTrigger.update);
 
         const tickerFn = (time: number) => {
-            lenis.raf(time * 1000);
+            lenisInstance.raf(time * 1000);
         };
 
         gsap.ticker.add(tickerFn);
@@ -48,21 +48,21 @@ export const SmoothScroll = ({ children }: { children: ReactNode }) => {
 
         return () => {
             gsap.ticker.remove(tickerFn);
-            lenis.destroy();
-            lenisRef.current = null;
+            lenisInstance.destroy();
+            setLenis(null);
         };
     }, []);
 
     const stop = () => {
-        lenisRef.current?.stop();
+        lenis?.stop();
     };
 
     const start = () => {
-        lenisRef.current?.start();
+        lenis?.start();
     };
 
     return (
-        <SmoothScrollContext.Provider value={{ lenis: lenisRef.current, stop, start }}>
+        <SmoothScrollContext.Provider value={{ lenis, stop, start }}>
             {children}
         </SmoothScrollContext.Provider>
     );

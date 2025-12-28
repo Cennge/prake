@@ -1,31 +1,41 @@
 import { ArrowUp } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useSmoothScroll } from '@app/providers/SmoothScroll';
 import './ScrollToTop.css';
 
 export const ScrollToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const { lenis } = useSmoothScroll();
 
-    const toggleVisibility = () => {
-        if (window.scrollY > 300) {
-            setIsVisible(true);
+    const scrollToTop = () => {
+        if (lenis) {
+            lenis.scrollTo(0, { duration: 1.5 });
         } else {
-            setIsVisible(false);
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
         }
     };
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
-
     useEffect(() => {
-        window.addEventListener('scroll', toggleVisibility);
-        return () => {
-            window.removeEventListener('scroll', toggleVisibility);
+        if (!lenis) {
+            const toggleVisibilityHandler = () => {
+                setIsVisible(window.scrollY > 300);
+            };
+            window.addEventListener('scroll', toggleVisibilityHandler);
+            return () => window.removeEventListener('scroll', toggleVisibilityHandler);
+        }
+
+        const handleScroll = (e: any) => {
+            setIsVisible(e.scroll > 300);
         };
-    }, []);
+
+        lenis.on('scroll', handleScroll);
+        return () => {
+            lenis.off('scroll', handleScroll);
+        };
+    }, [lenis]);
 
     return (
         <button
