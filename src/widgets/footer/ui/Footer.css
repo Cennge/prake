@@ -53,7 +53,6 @@
     color: #6b7280;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .footer__link {
@@ -189,5 +188,9 @@
 
     .footer__copyright {
         text-align: center;
+    }
+
+    .footer__text {
+        justify-content: center;
     }
 }

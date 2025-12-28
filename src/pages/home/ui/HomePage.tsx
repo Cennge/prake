@@ -9,54 +9,6 @@ export const HomePage = () => {
                 <source media="(max-width: 768px)" srcSet={homeBannerMobile} />
                 <img src={homeBanner} alt="Banner" className="home-banner" />
             </picture>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1>
         </div>
     );
 };
