@@ -1,0 +1,17 @@
+.home-banner {
+    width: calc(100% - 40px);
+    max-width: 1400px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 40px;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .home-banner {
+        width: calc(100% - 32px);
+        margin: 16px auto;
+        border-radius: 32px;
+    }
+}
