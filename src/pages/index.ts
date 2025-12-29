@@ -5,3 +5,4 @@ export { AboutPage } from './about/index.ts';
 export { PaymentPage } from './payment/index.ts';
 export { DeliveryPage } from './delivery/index.ts';
 export { WarrantyPage } from './warranty/index.ts';
+export { NotFoundPage } from './not-found/index.ts';
