@@ -1,4 +1,4 @@
-import { Monitor, Smartphone, Wallet, Send, Info, CreditCard } from 'lucide-react';
+import { Monitor, Smartphone, Wallet, Info, CreditCard } from 'lucide-react';
 import './PaymentPage.css';
 
 export const PaymentPage = () => {
