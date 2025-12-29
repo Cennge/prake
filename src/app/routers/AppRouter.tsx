@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { HomePage, RegisterPage, OfferPage, AboutPage } from '../../pages';
+import { HomePage, RegisterPage, OfferPage, AboutPage, PaymentPage, DeliveryPage, WarrantyPage } from '../../pages';
 
 export const AppRouter = () => {
     return (
@@ -8,6 +8,9 @@ export const AppRouter = () => {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/offer" element={<OfferPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/delivery" element={<DeliveryPage />} />
+            <Route path="/warranty" element={<WarrantyPage />} />
         </Routes>
     );
 };

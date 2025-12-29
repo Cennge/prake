@@ -114,7 +114,7 @@ export const Footer = () => {
                 <div className="footer__bottom-container">
                     <div className="footer__credits">
                         <span>Created by Ilya Gliba</span>
-                        <a href="https://github.com/Cennge" target="_blank" rel="noopener noreferrer" className="footer__github-link">
+                        <a href="https://github.com/Cennge" target="_blank" rel="noopener noreferrer nofollow" className="footer__github-link">
                             <Github size={14} />
                             <span>Cennge</span>
                         </a>
