@@ -1,0 +1,36 @@
+.product-catalog {
+    padding: 40px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.product-catalog .container {
+    width: calc(100% - 40px);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-catalog__title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    /* Changed to dark for light theme */
+    margin-bottom: 32px;
+    text-align: left;
+    /* Align with header content usually */
+    padding-left: 12px;
+}
+
+.product-catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .product-catalog__grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+    }
+}

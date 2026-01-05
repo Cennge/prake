@@ -28,6 +28,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "baseUrl": ".",
+    "resolveJsonModule": true,
     "paths": {
       "@app/*": [
         "src/app/*"

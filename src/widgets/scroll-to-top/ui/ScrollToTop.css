@@ -43,3 +43,11 @@
 .scroll-to-top svg {
     color: #4b5563;
 }
+
+@media (max-width: 768px) {
+    .scroll-to-top {
+        bottom: 110px;
+        /* Raised to avoid overlapping fixed bottom elements */
+        right: 20px;
+    }
+}
