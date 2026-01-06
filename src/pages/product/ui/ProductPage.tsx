@@ -4,6 +4,7 @@ import './ProductPage.css';
 import type { Product, ProductReview } from '../../../widgets/product-catalog/model/types';
 import { useEffect, useState, useRef } from 'react';
 import { Star, ShoppingCart, Truck, ShieldCheck } from 'lucide-react';
+import { useCart } from '../../../app/providers/CartProvider';
 
 // Dynamically import all images from the assets folder
 const allImages = import.meta.glob<{ default: string }>('../../../shared/assets/product/**/*.{jpg,jpeg,png,webp}', {
@@ -41,6 +42,7 @@ export const ProductPage = () => {
     const [product, setProduct] = useState<Product | null>(null);
     const [activeImage, setActiveImage] = useState<string>('');
     const [activeTab, setActiveTab] = useState<'specs' | 'reviews'>('specs');
+    const { addToCart } = useCart();
 
     // Explicitly type ref as HTMLDivElement
     const reviewsRef = useRef<HTMLDivElement>(null);
@@ -171,7 +173,11 @@ export const ProductPage = () => {
                                 <span className="product-page__price">{product.price} <small>₴</small></span>
                             </div>
 
-                            <button className="product-page__buy-btn" disabled={!product.inStock}>
+                            <button
+                                className="product-page__buy-btn"
+                                disabled={!product.inStock}
+                                onClick={() => product.inStock && addToCart(product)}
+                            >
                                 <ShoppingCart size={20} />
                                 {product.inStock ? 'Добавить в корзину' : 'Сообщить о наличии'}
                             </button>

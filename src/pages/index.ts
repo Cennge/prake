@@ -7,3 +7,4 @@ export { DeliveryPage } from './delivery/index.ts';
 export { WarrantyPage } from './warranty/index.ts';
 export { ProductPage } from './product/index.ts';
 export { NotFoundPage } from './not-found/index.ts';
+export { CartPage } from './cart/index.ts';

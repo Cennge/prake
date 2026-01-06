@@ -6,7 +6,6 @@
         "oldPrice": 300,
         "currency": "UAH",
         "inStock": true,
-        "stockQuantity": 15,
         "image": "ddr3-4gb",
         "category": "Комплектующие",
         "specifications": [
@@ -35,7 +34,6 @@
         "price": 120,
         "currency": "UAH",
         "inStock": true,
-        "stockQuantity": 30,
         "image": "fan-120",
         "category": "Охлаждение",
         "specifications": [
@@ -64,7 +62,6 @@
         "price": 450,
         "currency": "UAH",
         "inStock": true,
-        "stockQuantity": 5,
         "image": "videocard-r5-240",
         "category": "Видеокарты",
         "specifications": [
@@ -93,7 +90,6 @@
         "price": 220,
         "currency": "UAH",
         "inStock": false,
-        "stockQuantity": 0,
         "image": "hdmi-to-vga",
         "category": "Кабели и переходники",
         "specifications": [
@@ -122,7 +118,6 @@
         "price": 45,
         "currency": "UAH",
         "inStock": true,
-        "stockQuantity": 100,
         "image": "molex-to-sata",
         "category": "Кабели и переходники",
         "specifications": [
@@ -151,7 +146,6 @@
         "price": 35,
         "currency": "UAH",
         "inStock": true,
-        "stockQuantity": 50,
         "image": "dust-filter-120",
         "category": "Аксессуары",
         "specifications": [
@@ -181,7 +175,6 @@
         "oldPrice": 7200,
         "currency": "UAH",
         "inStock": true,
-        "stockQuantity": 2,
         "image": "ssd-nvme-seagate-2tb",
         "category": "Накопители",
         "specifications": [

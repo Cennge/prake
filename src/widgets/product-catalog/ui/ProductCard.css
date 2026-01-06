@@ -167,6 +167,13 @@
     /* Orange price */
 }
 
+.product-card__stock-count {
+    font-size: 11px;
+    color: #10b981;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
 .product-card__button {
     background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     color: white;
@@ -179,6 +186,11 @@
     font-size: 14px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    white-space: nowrap;
 }
 
 .product-card__button:hover {

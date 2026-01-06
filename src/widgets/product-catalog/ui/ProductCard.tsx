@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom';
 import type { Product } from '../model/types';
 import './ProductCard.css';
+import { useCart } from '../../../app/providers/CartProvider';
+import { ShoppingCart } from 'lucide-react';
 
 interface ProductCardProps {
     product: Product;
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
+    const { addToCart } = useCart();
+
     return (
         <div className="product-card">
             <div className="product-card__image-wrapper">
@@ -53,9 +57,22 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                         <div className="product-card__price">
                             {product.price} ₴
                         </div>
+                        {product.inStock && product.stockQuantity !== undefined && (
+                            <div className="product-card__stock-count">
+                                {product.stockQuantity} шт.
+                            </div>
+                        )}
                     </div>
 
-                    <button className={`product-card__button ${!product.inStock ? 'disabled' : ''}`} disabled={!product.inStock}>
+                    <button
+                        className={`product-card__button ${!product.inStock ? 'disabled' : ''}`}
+                        disabled={!product.inStock}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            if (product.inStock) addToCart(product);
+                        }}
+                    >
+                        <ShoppingCart size={18} />
                         {product.inStock ? 'В корзину' : 'Нет в наличии'}
                     </button>
                 </div>

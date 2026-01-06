@@ -4,6 +4,7 @@ import logoPrake from '@shared/assets/logo/logo-prake.png';
 import './Header.css';
 import { useState } from 'react';
 import { Sidebar } from '../../sidebar/ui/Sidebar';
+import { useCart } from '../../../app/providers/CartProvider';
 
 interface HeaderProps {
     onCatalogClick?: () => void;
@@ -12,6 +13,7 @@ interface HeaderProps {
 
 export const Header = ({ onCatalogClick, isCatalogActive }: HeaderProps) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const { count } = useCart();
 
     return (
         <>
@@ -72,9 +74,10 @@ export const Header = ({ onCatalogClick, isCatalogActive }: HeaderProps) => {
                             <Scale size={24} color="currentColor" />
                         </button>
 
-                        <button className="header__action-btn">
+                        <Link to="/cart" className="header__action-btn">
                             <ShoppingCart size={24} color="currentColor" />
-                        </button>
+                            {count > 0 && <span className="header__cart-badge">{count}</span>}
+                        </Link>
                     </div>
                 </div>
             </header>

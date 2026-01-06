@@ -18,6 +18,7 @@ export interface Product {
     oldPrice?: number;
     currency: string;
     inStock: boolean;
+    stockQuantity?: number;
     image: string;
     images?: string[]; // Array of image URLs
     category: string;
