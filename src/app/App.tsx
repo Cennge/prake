@@ -8,12 +8,15 @@ import { ScrollToTop } from '@widgets/scroll-to-top';
 import { Footer } from '@widgets/footer';
 import { CatalogSidebar } from '@widgets/catalog-sidebar';
 import { useState } from 'react';
+import { Preloader } from '@shared/ui/Preloader';
 
 export const App = () => {
     const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     return (
         <BrowserRouter>
+            {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
             <CartProvider>
                 <SmoothScroll>
                     <Header
