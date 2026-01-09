@@ -1,20 +1,15 @@
-/* Light Liquid Glass Theme - Floating Pill Variant */
 .header {
     background-color: rgba(255, 255, 255, 0.7);
-    /* Light translucent base */
     backdrop-filter: blur(12px) saturate(140%);
     -webkit-backdrop-filter: blur(12px) saturate(140%);
 
-    /* Floating Pill Dimensions & Positioning */
     width: calc(100% - 40px);
     max-width: 1400px;
     margin: 20px auto;
     height: 72px;
-    /* Slightly sleeker */
     position: sticky;
     top: 20px;
 
-    /* Rounded Aesthetic */
     border-radius: 40px;
     border: 1px solid rgba(255, 255, 255, 0.6);
     box-shadow:
@@ -31,7 +26,6 @@
 
 .header__container {
     max-width: 100%;
-    /* Relative to the floating header width */
     margin: 0 auto;
     width: 100%;
     display: flex;
@@ -43,7 +37,6 @@
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 50%;
-    /* Circular for the pill theme */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -88,7 +81,6 @@
     filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.1));
 }
 
-/* Glassy Catalog Button */
 .header__catalog-btn {
     display: flex;
     align-items: center;
@@ -98,7 +90,6 @@
     color: #4b5563;
     padding: 0 20px;
     border-radius: 30px;
-    /* More rounded */
     height: 44px;
     cursor: pointer;
     font-size: 15px;
@@ -126,7 +117,6 @@
     box-shadow: 0 10px 20px rgba(249, 115, 22, 0.15);
 }
 
-/* Liquid Search Bar */
 .header__search {
     flex: 1;
     display: flex;
@@ -134,7 +124,6 @@
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 30px;
-    /* Fully rounded search */
     overflow: hidden;
     height: 44px;
     position: relative;
@@ -210,7 +199,6 @@
     font-weight: 500;
     transition: all 0.3s ease;
     border-radius: 0 30px 30px 0;
-    /* Match search rounding */
     flex-shrink: 0;
     will-change: filter, box-shadow;
 }
@@ -220,7 +208,6 @@
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
-/* Actions Area */
 .header__actions {
     display: flex;
     align-items: center;
@@ -264,7 +251,6 @@
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 50%;
-    /* Circular for floating feel */
     cursor: pointer;
     color: #4b5563;
     width: 44px;
@@ -307,13 +293,10 @@
     bottom: -2px;
 }
 
-/* Mobile Search Button */
 .header__search-btn-mobile {
     display: none;
-    /* Hidden on desktop */
 }
 
-/* Mobile Layout */
 @media (max-width: 768px) {
     .header {
         padding: 0 16px;
@@ -328,7 +311,6 @@
         justify-content: space-between;
     }
 
-    /* Hide Desktop Elements */
     .header__catalog-btn,
     .header__search,
     .header__lang,
@@ -336,15 +318,12 @@
         display: none;
     }
 
-    /* Show Mobile Elements */
     .header__search-btn-mobile {
         display: flex;
     }
 
-    /* Adjust Logo */
     .header__logo {
         margin-right: auto;
-        /* Push actions to the right */
         margin-left: 12px;
         height: 32px;
     }

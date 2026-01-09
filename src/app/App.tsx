@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppRouter } from './routers/AppRouter';
 import { SmoothScroll } from './providers/SmoothScroll';
 import { CartProvider } from './providers/CartProvider';
+import { AuthProvider } from './providers/AuthProvider';
 import { Header } from '@widgets/header';
 
 import { ScrollToTop } from '@widgets/scroll-to-top';
@@ -18,16 +19,18 @@ export const App = () => {
         <BrowserRouter>
             {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
             <CartProvider>
-                <SmoothScroll>
-                    <Header
-                        onCatalogClick={() => setIsCatalogOpen(prev => !prev)}
-                        isCatalogActive={isCatalogOpen}
-                    />
-                    <CatalogSidebar isOpen={isCatalogOpen} onClose={() => setIsCatalogOpen(false)} />
-                    <AppRouter />
-                    <Footer />
-                    <ScrollToTop />
-                </SmoothScroll>
+                <AuthProvider>
+                    <SmoothScroll>
+                        <Header
+                            onCatalogClick={() => setIsCatalogOpen(prev => !prev)}
+                            isCatalogActive={isCatalogOpen}
+                        />
+                        <CatalogSidebar isOpen={isCatalogOpen} onClose={() => setIsCatalogOpen(false)} />
+                        <AppRouter />
+                        <Footer />
+                        <ScrollToTop />
+                    </SmoothScroll>
+                </AuthProvider>
             </CartProvider>
         </BrowserRouter>
     );

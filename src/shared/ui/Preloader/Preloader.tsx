@@ -20,12 +20,10 @@ export const Preloader = ({ onComplete }: PreloaderProps) => {
             }
         });
 
-        // Initial state
         gsap.set(logoRef.current, { opacity: 0, y: 15, scale: 0.95 });
         gsap.set(progressRef.current, { scaleX: 0 });
         gsap.set(progressBarRef.current, { opacity: 0 });
 
-        // Animation sequence
         tl.to(logoRef.current, {
             opacity: 1,
             y: 0,
@@ -40,7 +38,7 @@ export const Preloader = ({ onComplete }: PreloaderProps) => {
             .to(progressRef.current, {
                 scaleX: 1,
                 duration: 1.2,
-                ease: "circ.inOut" // Interesting easing
+                ease: "circ.inOut"
             })
             .to([progressBarRef.current, logoRef.current], {
                 opacity: 0,
@@ -49,7 +47,7 @@ export const Preloader = ({ onComplete }: PreloaderProps) => {
                 ease: "power2.in"
             })
             .to(containerRef.current, {
-                yPercent: -100, // Slide up effect
+                yPercent: -100,
                 duration: 0.8,
                 ease: "power4.inOut"
             });

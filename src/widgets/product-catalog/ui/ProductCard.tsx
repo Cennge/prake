@@ -15,7 +15,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className="product-card">
             <div className="product-card__image-wrapper">
                 <Link to={`/product/${product.id}`} className="product-card__link">
-                    {/* Placeholder for image if not found, or actual image */}
                     <div className="product-card__image-placeholder">
                         {product.image ? (
                             <img src={product.image} alt={product.name} className="product-card__image" />

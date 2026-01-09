@@ -20,7 +20,7 @@ export interface Product {
     inStock: boolean;
     stockQuantity?: number;
     image: string;
-    images?: string[]; // Array of image URLs
+    images?: string[];
     category: string;
     specifications: ProductSpecification[];
     description?: string;

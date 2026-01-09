@@ -1,55 +1,36 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@app/providers/AuthProvider';
-import './RegisterPage.css';
+import './LoginPage.css';
 
-export const RegisterPage = () => {
-    const [name, setName] = useState('');
+export const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
-    const { register } = useAuth();
+    const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
 
-        if (password !== confirmPassword) {
-            setError('Паролі не співпадають');
-            return;
-        }
-
-        const success = await register(name, email, password);
+        const success = await login(email, password);
         if (success) {
             navigate('/profile');
         } else {
-            setError('Користувач з таким email вже існує');
+            setError('Невірний email або пароль');
         }
     };
 
     return (
         <div className="auth-page">
             <div className="auth-card">
-                <h1 className="auth-title">Створення акаунту</h1>
-                <p className="auth-subtitle">Приєднуйтесь до нас сьогодні</p>
+                <h1 className="auth-title">З поверненням!</h1>
+                <p className="auth-subtitle">Увійдіть у свій обліковий запис</p>
 
                 {error && <div className="auth-error">{error}</div>}
 
                 <form className="auth-form" onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label className="form-label">Ім'я</label>
-                        <input
-                            type="text"
-                            className="form-input"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                            placeholder="Ігор"
-                        />
-                    </div>
-
                     <div className="form-group">
                         <label className="form-label">Email</label>
                         <input
@@ -74,25 +55,13 @@ export const RegisterPage = () => {
                         />
                     </div>
 
-                    <div className="form-group">
-                        <label className="form-label">Підтвердження паролю</label>
-                        <input
-                            type="password"
-                            className="form-input"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            required
-                            placeholder="••••••••"
-                        />
-                    </div>
-
                     <button type="submit" className="auth-btn">
-                        Зареєструватися
+                        Увійти
                     </button>
                 </form>
 
                 <div className="auth-link">
-                    Вже є акаунт? <Link to="/login">Увійти</Link>
+                    Немає акаунту? <Link to="/register">Зареєструватися</Link>
                 </div>
             </div>
         </div>

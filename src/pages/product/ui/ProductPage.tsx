@@ -6,7 +6,6 @@ import { useEffect, useState, useRef } from 'react';
 import { Star, ShoppingCart, Truck, ShieldCheck } from 'lucide-react';
 import { useCart } from '../../../app/providers/CartProvider';
 
-// Dynamically import all images from the assets folder
 const allImages = import.meta.glob<{ default: string }>('../../../shared/assets/product/**/*.{jpg,jpeg,png,webp}', {
     eager: true,
 });
@@ -22,14 +21,14 @@ const SAMPLE_REVIEWS_TEXT = [
 const SAMPLE_NAMES = ['Александр', 'Мария', 'Дмитрий', 'Елена', 'Андрей', 'Ольга', 'Сергей', 'Наталья'];
 
 const generateRandomReviews = (baseId: number): ProductReview[] => {
-    const count = Math.floor(Math.random() * 3) + 3; // 3 to 5 reviews
+    const count = Math.floor(Math.random() * 3) + 3;
     const reviews: ProductReview[] = [];
 
     for (let i = 0; i < count; i++) {
         reviews.push({
             id: baseId * 100 + i,
             author: SAMPLE_NAMES[Math.floor(Math.random() * SAMPLE_NAMES.length)],
-            rating: Math.random() > 0.3 ? 5 : 4, // Mostly 5 stars, some 4
+            rating: Math.random() > 0.3 ? 5 : 4,
             date: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString().split('T')[0],
             text: SAMPLE_REVIEWS_TEXT[Math.floor(Math.random() * SAMPLE_REVIEWS_TEXT.length)]
         });
@@ -44,7 +43,6 @@ export const ProductPage = () => {
     const [activeTab, setActiveTab] = useState<'specs' | 'reviews'>('specs');
     const { addToCart } = useCart();
 
-    // Explicitly type ref as HTMLDivElement
     const reviewsRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -60,7 +58,6 @@ export const ProductPage = () => {
 
             const mainImage = productImages.find(img => img.includes('main1')) || productImages[0] || '';
 
-            // Ensure reviews exist
             let reviews = foundProductData.reviews;
             if (!reviews || reviews.length === 0) {
                 reviews = generateRandomReviews(foundProductData.id);
@@ -202,7 +199,6 @@ export const ProductPage = () => {
                     </div>
                 </div>
 
-                {/* Description Block */}
                 {product.description && (
                     <div className="product-page__section product-page__description-block">
                         <h2 className="section-title">О товаре</h2>
@@ -212,7 +208,6 @@ export const ProductPage = () => {
                     </div>
                 )}
 
-                {/* Specs and Reviews Tabs Block */}
                 <div className="product-page__section" ref={reviewsRef}>
                     <div className="product-page__tabs">
                         <button

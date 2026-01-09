@@ -3,15 +3,12 @@ import { ProductCard } from './ProductCard';
 import './ProductCatalog.css';
 import type { Product } from '../model/types';
 
-// Dynamically import all main1 images from the assets folder
 const images = import.meta.glob<{ default: string }>('../../../shared/assets/product/**/main1.{jpg,jpeg,png,webp}', {
     eager: true,
 });
 
 export const ProductCatalog = () => {
-    // Map existing products
     const products: Product[] = productsData.map((p) => {
-        // Find the image key that contains the folder name string (p.image)
         const imageKey = Object.keys(images).find((key) => key.includes(`/${p.image}/main1.`));
         const imageUrl = imageKey ? images[imageKey].default : '';
 

@@ -8,3 +8,5 @@ export { WarrantyPage } from './warranty/index.ts';
 export { ProductPage } from './product/index.ts';
 export { NotFoundPage } from './not-found/index.ts';
 export { CartPage } from './cart/index.ts';
+export { LoginPage } from './login/index.ts';
+export { ProfilePage } from './profile/index.ts';

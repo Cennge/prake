@@ -5,6 +5,7 @@ import './Header.css';
 import { useState } from 'react';
 import { Sidebar } from '../../sidebar/ui/Sidebar';
 import { useCart } from '../../../app/providers/CartProvider';
+import { useAuth } from '../../../app/providers/AuthProvider';
 
 interface HeaderProps {
     onCatalogClick?: () => void;
@@ -14,6 +15,7 @@ interface HeaderProps {
 export const Header = ({ onCatalogClick, isCatalogActive }: HeaderProps) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const { count } = useCart();
+    const { user } = useAuth();
 
     return (
         <>
@@ -66,9 +68,9 @@ export const Header = ({ onCatalogClick, isCatalogActive }: HeaderProps) => {
                             <ChevronDown size={16} color="currentColor" />
                         </button>
 
-                        <button className="header__action-btn">
+                        <Link to={user ? "/profile" : "/login"} className="header__action-btn">
                             <User size={24} color="currentColor" />
-                        </button>
+                        </Link>
 
                         <button className="header__action-btn">
                             <Scale size={24} color="currentColor" />
